@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rotate</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$("#button").click(function () {
+		$("#orange").addClass("off");
+		$("#blue").addClass("off");
+		$("#green").addClass("off");
+		$("#black").addClass("off");
+		$("div").fadeOut(2000);
+
+		// body...
+	});
+});
+	</script>
+</head>
+<body>
+	<div id="orange">
+		<img src="orange copy1.png" width="200"  height="200" />	
+	</div>
+	<div id="green">
+		<img src="green copy2.png" width="165" height="165" />	
+	</div>
+	<div id="blue">
+		<img src="blue copy1.png" width="115" height="115" />	
+	</div>
+	<div id="black">
+		<img src="black copy1.png" width="75" height="75" />	
+	</div> 
+	<button class="btn btn-primary" id="button">Stop</button>
+	<style type="text/css">
+
+
+	#orange
+	{
+		position: absolute;
+		left: 600px;
+		top: 250px;
+		width: 200px;
+		height: 200px;
+		-webkit-animation-name: rotate;
+		-webkit-animation-duration:2s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function:linear;
+	}
+	#green
+	{
+		position: absolute;
+		left: 617.5px;
+		top: 267.5px;
+		width: 165px;
+		height: 165px;
+		-webkit-animation-name: rotate;
+		-webkit-animation-duration:3s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function:linear;
+	}
+	#blue
+	{
+		position: absolute;
+		left: 642.5px;
+		top: 292.5px;
+		width: 115px;
+		height: 115px;
+		-webkit-animation-name: rotate;
+		-webkit-animation-duration:4s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function:linear;
+	}
+	#black
+	{
+		position: absolute;
+		left: 662.5px;
+		top: 312.5px;
+		width: 75px;
+		height: 75px;
+		-webkit-animation-name: rotate;
+		-webkit-animation-duration:5s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function:linear;
+	}
+	/*div
+	{
+		position: relative;
+		left: 600px;
+		top: 250px;
+		width: 200px;
+		height: 200px;
+		-webkit-animation-name: rotate;
+		-webkit-animation-duration:10s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function:linear;
+		z-index: 0;
+
+
+	}*/
+	#orange.off {
+		-webkit-animation-name: none;	
+	}
+	#green.off {
+		-webkit-animation-name: none;	
+	}#blue.off {
+		-webkit-animation-name: none;	
+	}#black.off {
+		-webkit-animation-name: none;	
+	}
+	
+
+	@-webkit-keyframes rotate
+	{
+		100%
+		{
+			-webkit-transform: rotateZ(360deg);
+		}
+	} 
+	</style>
+</body>
+</html>

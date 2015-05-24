@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>formalerts</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <!-- script for password -->
+  <script type="text/javascript">
+    function checkPass()
+      {
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    //Store the Confimation Message Object ...
+    var message = document.getElementById('confirmMessage');
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value == pass2.value){
+        //The passwords match. 
+        //Set the color to the good color and inform
+        //the user that they have entered the correct password 
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match!";
+    }else{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!";
+    }
+      }  
+  </script>
+  <!-- script for phone number -->
+  <script>
+    $(document).ready(function() {
+    $("#inputphonenumber").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: Ctrl+C
+            (e.keyCode == 67 && e.ctrlKey === true) ||
+             // Allow: Ctrl+X
+            (e.keyCode == 88 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't doa nything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+    });
+  </script>
+  <!-- script for state -->
+  <script src="jquery-1.11.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="jquery.select-to-autocomplete.js"></script>
+  <script>
+    (function($){
+      $(function(){
+        $('select').selectToAutocomplete();
+        $('form').submit(function(){
+          return false;
+        });
+      });
+    })(jQuery);
+  </script>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <style>
+    body {
+      background-color: #006699;
+      color: #FFFFFF;
+    }
+    h1,p{
+      color: #000000;
+    }
+    span{
+      color: red;
+    }
+    .form-control{
+      border-width: 0px;
+      border-color: red;
+    }
+    .ui-autocomplete {
+      padding: 0;
+      list-style: none;
+      background-color: #fff;
+      width: 218px;
+      border: 1px solid #B0BECA;
+      max-height: 350px;
+      overflow-x: hidden;
+    }
+    .ui-autocomplete .ui-menu-item {
+      border-top: 1px solid #B0BECA;
+      display: block;
+      padding: 4px 6px;
+      color: #353D44;
+      cursor: pointer;
+    }
+    .ui-autocomplete .ui-menu-item:first-child {
+      border-top: none;
+    }
+    .ui-autocomplete .ui-menu-item.ui-state-focus {
+      background-color: #D5E5F4;
+      color: #161A1C;
+    }
+  </style> 
+</head>
+<body>
+<h1>Registration Form</h1>
+<form name="form" class="form-horizontal" id="form" novalidate>
+  <!-- First Name -->
+	<div class="form-group">
+    <label for="inputfirstname" class="col-sm-2 control-label">First Name</label>
+    	<div class="col-sm-2">
+      	<input type="text" class="form-control" id="inputfirstname" placeholder="First Name" required>
+        <span class="span" id="fn" >This field is required</span>
+    	</div>
+  	</div>
+      <!-- Last Name -->
+  <div class="form-group">
+    <label for="inputlastname" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="inputlastname" placeholder="Last Name" required>
+        <span class="span" id="ln">This field is required</span>    
+    </div>
+  </div>
+    <!-- Phone -->
+   <div class="form-group">
+    <label for="inputphonenumber" class="col-sm-2 control-label">Phone Number</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" size="10" maxlength="10" id="inputphonenumber" placeholder="Phone Number" required>
+     <span class="span" id="pn" >This field is required</span>
+     <span class="span" id="pn2"> Minimum 10 digits</span>
+    </div>
+  </div>
+    <!-- State -->
+  <div class="form-group">
+    <label for="inputstate" class="col-sm-2 control-label">State</label>
+    <div class="col-sm-2">
+   <select class="form-control" id="inputstate" autocorrect="off" autocomplete="off" placeholder="State" required>
+   <!-- states -->
+    <option value="">Select State</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>    
+      <option value="Assam">Assam</option>
+      <option value="Bihar" >Bihar</option>
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="Goa">Goa</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Meghalaya">Meghalaya</option>
+      <option value="Mizoram">Mizoram</option>
+      <option value="Nagaland">Nagaland</option>
+      <option value="Odisha">Odisha</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Sikkim">Sikkim</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Telangana">Telangana</option>
+      <option value="Tripura">Tripura</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Uttarakhand">Uttarakhand</option>
+      <option value="West Bengal">West Bengal</option>
+    </select>
+            <span class="span" id="s">This field is required</span>
+  </div>
+  </div>
+    <!-- Email -->
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-2"><span class="add-on"><i class="icon-envelope"></i></span>
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+            <div><span class="span" id="em" >This field is required</span></div>
+            <span class="span" id="em2">Email address invalid</span>
+    </div>
+  </div>
+    <!-- Password -->
+  <div class="form-group">
+    <label for="pass1" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-2">
+      <input type="password" name="pass1" id="pass1" class="form-control" placeholder="Password"required>
+            <span class="span" id="p">This field is required</span>
+            <span class="span" id="p2">Minimum 6 characters</span>
+
+    </div>
+  </div>
+    <!-- Confirm Password -->
+   <div class="form-group">
+    <label for="pass2" class="col-sm-2 control-label">Confirm Password</label>
+    <div class="col-sm-2">
+     <input type="password" name="pass2" id="pass2" class="form-control" onkeyup="checkPass(); return false;" placeholder="Confirm Password" required>
+      <span id="confirmMessage" class="confirmMessage"></span>
+            <span class="span" id="cp">This field is required</span>
+    </div>
+  </div>
+  <p>All fields are compulsory</p>
+    <!-- buttons -->
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary" value="submit" id="submit" onclick="checkEmail();">Submit</button>
+      <button type="submit" class="btn btn-success" value="submit" id="submitsuccess" disabled="disabled" >Submitted Successfully</button>
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+$(".span").hide();
+$("#submitsuccess").hide();
+$("#submit").click(function () {
+  var myLength0 = $("#inputfirstname").val().length;
+  if (myLength0==0) {
+    $("#fn").show();
+    $("#inputfirstname").css("border-width","2px");
+  }else
+  {
+    $("#fn").hide();
+    $("#inputfirstname").css("border-width","0px");
+  };
+  var myLength1 = $("#inputlastname").val().length;
+  if (myLength1==0) {
+    $("#ln").show();
+    $("#inputlastname").css("border-width","2px");
+  }else
+  {
+    $("#ln").hide();
+    $("#inputlastname").css("border-width","0px");
+  };
+  var myLength2 = $("#inputphonenumber").val().length;
+  if (myLength2==0) {
+    $("#pn").show();
+    $("#inputphonenumber").css("border-width","2px");
+  }else
+  {
+    $("#pn").hide();
+    $("#inputphonenumber").css("border-width","0px");
+  };
+  var myLength3 = $("#inputstate").val().length;
+  if (myLength3==0) {
+    $("#s").show();
+    $("#inputstate").css("border-width","2px");
+  }else
+  {
+    $("#s").hide();
+    $("#inputstate").css("border-width","0px");
+  };
+  var myLength4 = $("#inputEmail3").val().length;
+  if (myLength4==0) {
+    $("#em").show();
+    $("#inputEmail3").css("border-width","2px");
+  }else
+  {
+    $("#em").hide();
+    $("#inputEmail3").css("border-width","0px");
+  };
+  var myLength5 = $("#pass1").val().length;
+  if (myLength5==0) {
+    $("#p").show();
+    $("#pass1").css("border-width","2px");
+  }else
+  {
+    $("#p").hide();
+    $("#pass1").css("border-width","0px");
+  };
+  var myLength6 = $("#pass2").val().length;
+  if (myLength6==0) {
+    $("#cp").show();
+    $("#pass2").css("border-width","2px");
+  }else
+  {
+    $("#cp").hide();
+    $("#pass2").css("border-width","0px");
+  };
+  var myLength7 = $("#inputphonenumber").val().length;
+  if (myLength7<10&myLength7>0) {
+    $("#pn2").show();
+    $("#inputphonenumber").css("border-width","2px");
+  }else
+  {
+    $("#pn2").hide();
+    $("#inputphonenumber").css("border-width","0px");
+  };
+  if (myLength5<6&myLength5>0) {
+    $("#p2").show();
+    $("#pass1").css("border-width","2px");
+  }else
+  {
+    $("#p2").hide();
+    $("#pass1").css("border-width","0px");
+  };
+
+  if (myLength0!==0&&myLength1!==0&&myLength2!==0&&myLength3!==0&&myLength4!==0&&myLength5!==0&&myLength6!==0&&myLength6>5&&myLength7!==0&& $("#pass1").val()===$("#pass2").val()) 
+  {
+      $("#submitsuccess").show();
+      $("#submit").hide();
+      $(".form-control").val('');
+      $("#pass2").css("background-color","#FFFFFF");
+      $("#confirmMessage").hide();
+
+  }else
+  {
+    $("#submitsuccess").hide();
+     $("#submit").show();
+  };
+})
+</script>
+<!-- Email verification -->
+<script type="text/javascript">
+  function checkEmail() {
+
+    var email = document.getElementById('inputEmail3');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    var myLength4 = $("#inputEmail3").val().length;
+    if (!filter.test(email.value)&&myLength4!==0) {
+      $("#em2").show();
+    // alert('Please provide a valid email address');
+    email.focus;
+    return false;
+ }else
+ {
+   $("#em2").hide();
+ }
+}
+</script>
+</body>
+</html>

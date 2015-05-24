@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="ValidationForm">
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS  Custom Form Validation</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+   <form name="form" class="css-form" novalidate>
+      <div>
+        Size (integer 0 - 10):
+        <input type="number" ng-model="size" name="size"
+               min="0" max="10" integer />{{size}}<br />
+        <span ng-show="form.size.$error.integer">The value is not a valid integer!</span>
+        <span ng-show="form.size.$error.min || form.size.$error.max">
+          The value must be in range 0 to 10!</span>
+      </div>
+    </form>
+  </body>
+</html>
